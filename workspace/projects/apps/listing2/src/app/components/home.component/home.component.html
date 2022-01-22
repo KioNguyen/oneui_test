@@ -1,0 +1,81 @@
+<vnpt-page>
+  <my-actionbar [selected]="setOfCheckedId.size" (onClick)="runCommand($event)"></my-actionbar>
+  <vnpt-layout [vType]="'compact'">
+    <vnpt-main-content [title]="'Danh sách ứng dụng'">
+      <filter-panel></filter-panel>
+      <div vnpt-row class="tablist-wrapper">
+        <div vnpt-col vSpan="24">
+          <vnpt-tabset>
+            <vnpt-tab vTitle="Tất cả ứng dụng">
+              <vnpt-table #rowSelectionTable vShowSizeChanger [vData]="listOfData"
+                (vCurrentPageDataChange)="onCurrentPageDataChange($event)" class="table-container">
+                <thead>
+                  <tr>
+                    <th [(vChecked)]="checked" [vIndeterminate]="indeterminate" (vCheckedChange)="onAllChecked($event)">
+                    </th>
+                    <th>Ứng dụng</th>
+                    <th>Loại ứng dụng</th>
+                    <th>Người đăng ký</th>
+                    <th>Ngày đăng ký</th>
+                    <th>Trạng thái</th>
+                    <th>Tùy chọn</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let data of rowSelectionTable.data">
+                    <td [vChecked]="setOfCheckedId.has(data.id_incr)"
+                      (vCheckedChange)="onItemChecked(data.id_incr, $event)"></td>
+                    <td>
+                      <a href="javascript:void(0);" (click)="viewDetail(data)">{{ data.module_name }}</a>
+                    </td>
+                    <td>{{ data.type }}</td>
+                    <td>{{ data.user_id }}</td>
+                    <td>{{ data.created_at | date: "dd/MM/yyyy" }}</td>
+                    <td>
+                      <vnpt-badge *ngIf="data.status == '0'" vStatus="warning" vText="Đang chờ kiểm duyệt"></vnpt-badge>
+                      <vnpt-badge *ngIf="data.status == '1'" vStatus="success" vText="Đã kiểm duyệt"></vnpt-badge>
+                      <vnpt-badge *ngIf="data.status == '2'" vStatus="processing" vText="Đã công bố"></vnpt-badge>
+                      <vnpt-badge *ngIf="data.status == '3'" vStatus="error" vText="Đã thu hồi"></vnpt-badge>
+                    </td>
+                    <td>
+                      <button vnpt-button vnpt-dropdown vType="text" class="topbar-btn" [vDropdownMenu]="menu1"
+                        vTrigger="click" vnpt-tooltip vTooltipTitle="Mở tùy chọn">
+                        <i vnpt-icon [vType]="'MoreVertical'"></i>
+                      </button>
+
+                      <vnpt-dropdown-menu #menu1="vDropdownMenu">
+                        <ul vnpt-menu>
+                          <li vnpt-menu-item (click)="gotoDetal(false, data)">
+                            <i vnpt-icon [vType]="'EntryView'"></i>
+                            Xem chi tiết
+                          </li>
+                          <li vnpt-menu-item (click)="gotoDetal(true, data)">
+                            <i class="icon-custom" vnpt-icon vType="Edit"></i>Chỉnh sửa
+                          </li>
+                          <li vnpt-menu-item>
+                            <i class="icon-custom" vnpt-icon vType="Ringer"></i>Xem thông báo
+                          </li>
+                          <li vnpt-menu-item>
+                            <i class="icon-custom" vnpt-icon vType="CustomizeToolbar"></i>Xem cấu hình
+                          </li>
+                        </ul>
+                      </vnpt-dropdown-menu>
+                    </td>
+                  </tr>
+                </tbody>
+              </vnpt-table>
+            </vnpt-tab>
+            <vnpt-tab vTitle="Chưa kiểm duyệt">
+              <vnpt-empty class="table-container" [vNotFoundContent]="'Hiện tại không có dữ liệu tại mục này'">
+              </vnpt-empty>
+            </vnpt-tab>
+            <vnpt-tab vTitle="Đang hiện hành">
+              <vnpt-empty class="table-container" [vNotFoundContent]="'Hiện tại không có dữ liệu tại mục này'">
+              </vnpt-empty>
+            </vnpt-tab>
+          </vnpt-tabset>
+        </div>
+      </div>
+    </vnpt-main-content>
+  </vnpt-layout>
+</vnpt-page>

@@ -1,0 +1,99 @@
+<vnpt-main-drawer [title]="pageTitle">
+  <div vnpt-row>
+    <div vnpt-col vSpan="24">
+      <form vnpt-form [formGroup]="validateForm" [vLayout]="'vertical'" (ngSubmit)="submitForm()">
+        <vnpt-form-item>
+          <vnpt-form-label vRequired vFor="email">E-mail</vnpt-form-label>
+          <vnpt-form-control vErrorTip="The input is not valid E-mail!">
+            <input vnpt-input formControlName="email" id="email" />
+          </vnpt-form-control>
+        </vnpt-form-item>
+        <vnpt-form-item>
+          <vnpt-form-label vFor="password" vRequired>Password</vnpt-form-label>
+          <vnpt-form-control vErrorTip="Please input your password!">
+            <input vnpt-input type="password" id="password" formControlName="password"
+              (ngModelChange)="updateConfirmValidator()" />
+          </vnpt-form-control>
+        </vnpt-form-item>
+        <vnpt-form-item>
+          <vnpt-form-label vFor="checkPassword" vRequired>Confirm Password</vnpt-form-label>
+          <vnpt-form-control [vErrorTip]="errorTpl">
+            <input vnpt-input type="password" formControlName="checkPassword" id="checkPassword" />
+            <ng-template #errorTpl let-control>
+              <ng-container *ngIf="control.hasError('required')">
+                Please confirm your password!
+              </ng-container>
+              <ng-container *ngIf="control.hasError('confirm')">
+                Two passwords that you enter is inconsistent!
+              </ng-container>
+            </ng-template>
+          </vnpt-form-control>
+        </vnpt-form-item>
+        <vnpt-form-item>
+          <vnpt-form-label vFor="nickname" vRequired vTooltipTitle="What do you want other to call you">
+            <span>Nickname</span>
+          </vnpt-form-label>
+          <vnpt-form-control vErrorTip="Please input your nickname!">
+            <input vnpt-input id="nickname" formControlName="nickname" />
+          </vnpt-form-control>
+        </vnpt-form-item>
+        <vnpt-form-item>
+          <vnpt-form-label vFor="phoneNumber" vRequired>Phone Number</vnpt-form-label>
+          <vnpt-form-control [vValidateStatus]="validateForm.controls['phoneNumber']"
+            vErrorTip="Please input your phone number!">
+            <vnpt-input-group [vAddOnBefore]="addOnBeforeTemplate">
+              <ng-template #addOnBeforeTemplate>
+                <vnpt-select formControlName="phoneNumberPrefix" class="phone-select">
+                  <vnpt-option vLabel="+84" vValue="+84"></vnpt-option>
+                </vnpt-select>
+              </ng-template>
+              <input formControlName="phoneNumber" id="'phoneNumber'" vnpt-input />
+            </vnpt-input-group>
+          </vnpt-form-control>
+        </vnpt-form-item>
+        <vnpt-form-item>
+          <vnpt-form-label vFor="website" vRequired>Website</vnpt-form-label>
+          <vnpt-form-control vErrorTip="Please input website!">
+            <input vnpt-input id="website" formControlName="website" placeholder="website" />
+          </vnpt-form-control>
+        </vnpt-form-item>
+        <vnpt-form-item>
+          <vnpt-form-label vFor="captcha" vRequired vTooltipTitle="Please click 'Get captcha'"
+            [vTooltipIcon]="captchaTooltipIcon">
+            Captcha
+          </vnpt-form-label>
+          <vnpt-form-control vErrorTip="Please input the captcha you got!"
+            vExtra="We must make sure that your are a human.">
+            <div vnpt-row [vGutter]="8">
+              <div vnpt-col [vSpan]="12">
+                <input vnpt-input formControlName="captcha" id="captcha" />
+              </div>
+              <div vnpt-col [vSpan]="12">
+                <button vnpt-button (click)="getCaptcha($event)">
+                  Get captcha
+                </button>
+              </div>
+            </div>
+          </vnpt-form-control>
+        </vnpt-form-item>
+        <vnpt-form-item vnpt-row class="register-area">
+          <vnpt-form-control [vSpan]="14" [vOffset]="6">
+            <label vnpt-checkbox formControlName="agree">
+              <span>
+                I have read the
+                <a>agreement</a>
+              </span>
+            </label>
+          </vnpt-form-control>
+        </vnpt-form-item>
+        <vnpt-form-item vnpt-row class="register-area">
+          <vnpt-form-control [vSpan]="14" [vOffset]="6">
+            <button vnpt-button vType="primary">
+              {{ isEditMode ? "Cập nhật" : "Tạp mới" }}
+            </button>
+          </vnpt-form-control>
+        </vnpt-form-item>
+      </form>
+    </div>
+  </div>
+</vnpt-main-drawer>

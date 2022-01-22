@@ -1,0 +1,117 @@
+<header vnpt-row vJustify="space-between">
+  <div class="left-header" vnpt-col [vXXl]="{ span: 7 }" [vXl]="{ span: 7 }" [vLg]="{ span: 7 }" [vMd]="{ span: 7 }"
+    [vSm]="{ span: 12 }" [vXs]="{ span: 12 }">
+    <button vnpt-button vType="text" class="topbar-btn" (click)="openLeftMenu()">
+      <i vnpt-icon vType="WaffleOffice365"></i>
+    </button>
+    <a vRouterLink="/home">
+      <vnpt-logo [vColor]="'#ffffff'" [vTitle]="'ONE UI'" class="vnpt-logo" [vXs]="{'size':'md'}" [vSm]="{'size':'md'}" [vMd]="{'size':'md'}" [vLg]="{'size':'lg'}" [vXl]="{'size':'lg'}" [vXxl]="{'size':'lg'}"></vnpt-logo>
+    </a>
+    <vnpt-drawer [vVisible]="showDrawerLeft" [vPlacement]="placementLeft" [vTitle]="leftDrawerTitle"
+      [vMaskStyle]="{ opacity: 0, animation: 'none' }" (vOnClose)="closeLeftMenu()"
+      [vWrapClassName]="'root-menu-wrapper'" [vWidth]="300">
+      <ng-container *vDrawerContent>
+        <vnpt-root-menu></vnpt-root-menu>
+      </ng-container>
+    </vnpt-drawer>
+    <ng-template #leftDrawerTitle>
+      <i vnpt-icon vType="WaffleOffice365" [vColor]="'primary '"></i>
+    </ng-template>
+  </div>
+  <div class="middle-header btn-search" vnpt-col [vXXl]="{ span: 10 }" [vXl]="{ span: 10 }" [vLg]="{ span: 10 }"
+    [vMd]="{ span: 10 }" [vSm]="{ span: 0 }" [vXs]="{ span: 0 }">
+    <vnpt-input-group vSearch [vPrefix]="prefixIconButton" class="btninput-group">
+      <input type="text" vnpt-input placeholder="Nhập từ khóa để tìm kiếm" class="btninput-detail" />
+    </vnpt-input-group>
+    <ng-template #prefixIconButton class="btnsearch-detail">
+      <i vnpt-icon vType="Search"></i>
+    </ng-template>
+  </div>
+
+  <div class="right-header" vnpt-col [vXXl]="{ span: 7 }" [vXl]="{ span: 7 }" [vLg]="{ span: 7 }" [vMd]="{ span: 7 }"
+    [vSm]="{ span: 12 }" [vXs]="{ span: 12 }">
+    <div class="right-header-content">
+      <button vnpt-button vType="text" class="topbar-btn show-input-search-header"
+        (click)="searchPanelVisible = !searchPanelVisible">
+        <i vnpt-icon vType="Search"></i>
+      </button>
+      <button vnpt-button vType="text" class="topbar-btn topbar-btn-menu-detail" (click)="showNotificationPanel()">
+        <i vnpt-icon vType="Ringer"></i>
+        <vnpt-badge vStandalone vDot class="dot-badge"></vnpt-badge>
+      </button>
+      <button vnpt-button vType="text" class="topbar-btn topbar-btn-menu-detail" (click)="showSettingPanel()">
+        <i vnpt-icon vType="Settings"></i>
+      </button>
+      <button vnpt-button vType="text" class="topbar-btn topbar-btn-menu" vTrigger="click" vnpt-dropdown
+        [vDropdownMenu]="menu" [vPlacement]="'bottomRight'">
+        <i vnpt-icon vType="More" [vSize]="'sm'"></i>
+      </button>
+      <vnpt-dropdown-menu #menu="vDropdownMenu">
+        <ul vnpt-menu class="btn-menu-more">
+          <li vnpt-menu-item (click)="showNotificationPanel()">
+            <i vnpt-icon vType="Ringer"></i> Thông báo
+          </li>
+          <li vnpt-menu-item (click)="showSettingPanel()">
+            <i vnpt-icon vType="Settings"></i>Cài đặt
+          </li>
+        </ul>
+      </vnpt-dropdown-menu>
+      <button vnpt-button vnpt-dropdown vType="text" class="topbar-btn topbar-btn-avatar" vTrigger="click"
+        [vDropdownMenu]="menu1" [vPlacement]="'bottomRight'">
+        <vnpt-avatar *ngIf="user" vText="{{user.name | usernamePipe}}" [vSize]="26" class="topbar-avatar"></vnpt-avatar>
+      </button>
+      <vnpt-dropdown-menu #menu1="vDropdownMenu">
+        <ul vnpt-menu>
+          <li *ngIf="user" vnpt-menu-item class="menu-user-info">
+            <div vnpt-row [vGutter]="16">
+              <div vnpt-col [vSpan]="6">
+                <vnpt-avatar vText="{{user.name | usernamePipe}}" [vSize]="56"
+                  style="background-color:#1363b9;font-size: 21px;" class="menu-avatar"></vnpt-avatar>
+              </div>
+              <div vnpt-col [vSpan]="18">
+                <h5 vnpt-typography class="truncate">{{user.name}}</h5>
+                <span vnpt-typography vType="secondary">{{user.email}}</span>
+              </div>
+            </div>
+          </li>
+          <li vnpt-menu-item class="menu-item" (click)="settingAcountClick()"><i vnpt-icon vType="Contact"></i>Thiết
+                lập tài khoản</li>
+          <li vnpt-menu-item class="menu-item"><a href="javascript:void(0);" (click)="logout();"><i vnpt-icon
+                vType="SignOut"></i>Thoát</a></li>
+        </ul>
+      </vnpt-dropdown-menu>
+    </div>
+
+    <vnpt-drawer [vVisible]="showDrawerRight" [vPlacement]="placementRight"
+      [vMaskStyle]="{ opacity: 0, animation: 'none' }" [vWidth]="485" (vOnClose)="closeRightMenu()">
+      <ng-container *vDrawerContent>
+        <ng-container [ngSwitch]="rightPanelMode">
+          <app-notification-panel *ngSwitchCase="1"></app-notification-panel>
+          <app-setting-panel *ngSwitchCase="2"></app-setting-panel>
+          <app-notification-panel *ngSwitchDefault>...</app-notification-panel>
+        </ng-container>
+      </ng-container>
+    </vnpt-drawer>
+  </div>
+
+  <div *ngIf="loadingVisible" class="main-loading-wrapper">
+    <vnpt-spin vSimple class="spin-icon" vTip="Loading..."></vnpt-spin>
+  </div>
+
+  <div *ngIf="searchPanelVisible">
+    <div class="search-overlay-wrapper" (click)="searchPanelVisible = false"></div>
+    <div class="show-input-search-header-input">
+      <div class="show-input-search-header-content-background">
+        <vnpt-input-group vSearch [vAddOnAfter]="suffixButton" [vPrefix]="prefixIconButton">
+          <input type="text" vnpt-input placeholder="Nhập từ khóa để tìm kiếm" vBorderless class="search-input" />
+        </vnpt-input-group>
+        <ng-template #suffixButton>
+          <button vnpt-button vType="primary" vSearch>Tìm kiếm</button>
+        </ng-template>
+        <ng-template #prefixIconButton>
+          <i vnpt-icon vType="Search"></i>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,17 @@
+<div class="error-layout">
+  <vnpt-layout [vType]="'compactCenter'" class="error-content">
+    <vnpt-result vStatus="403" vTitle="403" vMainTitle="KHÔNG CÓ QUYỀN TRUY CẬP"
+      vSubTitle="Bạn không được cấp quyền truy cập vào trang hiện tại. Xin vui lòng liên hệ quản trị viên.">
+      <div vnpt-result-extra>
+        Bạn có thể
+        <button class="btn-extra" vnpt-button vType="danger" (click)="goBack()">
+          Quay lại
+        </button>
+        hoặc trở về
+        <button class="btn-extra" vnpt-button vType="primary" (click)="goHome()">
+          Trang chủ
+        </button>
+      </div>
+    </vnpt-result>
+  </vnpt-layout>
+</div>

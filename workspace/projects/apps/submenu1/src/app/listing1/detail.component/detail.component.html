@@ -1,0 +1,29 @@
+<vnpt-main-drawer [title]="'Thông tin chi tiết'">
+  <vnpt-descriptions [vTitle]="title" vBordered>
+    <vnpt-descriptions-item vTitle="Product" [vSpan]="24">Cloud Database</vnpt-descriptions-item>
+    <vnpt-descriptions-item vTitle="Billing Mode" [vSpan]="24">Prepaid</vnpt-descriptions-item>
+    <vnpt-descriptions-item vTitle="Automatic Renewal" [vSpan]="24">YES</vnpt-descriptions-item>
+    <vnpt-descriptions-item vTitle="Order Time" [vSpan]="24">
+      2018-04-24 18:00:00
+    </vnpt-descriptions-item>
+    <vnpt-descriptions-item vTitle="Usage Time" [vSpan]="24">
+      2018-04-24 18:00:00 To 2019-04-24 18:00:00
+    </vnpt-descriptions-item>
+    <vnpt-descriptions-item vTitle="Status" [vSpan]="24">
+      <vnpt-badge vStatus="processing" vText="Running"></vnpt-badge>
+    </vnpt-descriptions-item>
+    <vnpt-descriptions-item vTitle="Negotiated Amount" [vSpan]="24">$80.00</vnpt-descriptions-item>
+    <vnpt-descriptions-item vTitle="Discount" [vSpan]="24">$20.00</vnpt-descriptions-item>
+    <vnpt-descriptions-item vTitle="Official Receipts" [vSpan]="24">$60.00</vnpt-descriptions-item>
+  </vnpt-descriptions>
+</vnpt-main-drawer>
+
+<ng-template #title>
+  <h5 vnpt-typography class="sub-title">{{ data.name }}</h5>
+  <button vnpt-button vType="text" (click)="runCommand('edit:' + data.id_incr)">
+    <i vnpt-icon vType="Edit" [vColor]="'primary'"></i>Sửa
+  </button>
+  <button vnpt-button vType="text" (click)="confirmDelete(data.id_incr)">
+    <i vnpt-icon vType="Delete" [vColor]="'danger'"></i>Xóa
+  </button>
+</ng-template>

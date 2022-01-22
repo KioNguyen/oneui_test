@@ -1,0 +1,201 @@
+header {
+  background-color: #1363b9;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+}
+.left-header vnpt-logo {
+  line-height: 32px;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+.left-header .root-menu-btn {
+  color: #ffffff;
+  margin: 6px 10px 4px 10px;
+  vertical-align: middle;
+}
+
+.left-header .root-menu-btn:hover {
+  color: #ffffffb8;
+}
+.middle-header {
+  vertical-align: middle;
+  padding-top: 8px;
+}
+.topbar-btn {
+  color: #ffffff;
+  width: 42px;
+  height: 42px;
+}
+
+.topbar-btn:hover {
+  background-color: #ffffff20;
+}
+
+.notif-btn .ms-Icon {
+  font-size: 20px;
+  vertical-align: text-top;
+}
+.topbar-avatar {
+  margin-left: -8px;
+  margin-top: -3px;
+}
+.oneui-dropdown-trigger:hover {
+  border-color: transparent !important;
+}
+.main-loading-wrapper {
+  position: fixed;
+  top: 42px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ffffff80;
+  text-align: center;
+  z-index: 999;
+}
+
+.main-loading-wrapper .spin-icon {
+  margin-top: 10%;
+}
+.oneui-input-affix-wrapper {
+  padding: 0px 6px;
+  border: none;
+  opacity: 0.9;
+}
+
+.oneui-dropdown-menu-item {
+  min-width: 300px;
+  padding: 15px 20px;
+}
+
+.oneui-input-affix-wrapper:hover,
+.oneui-input-affix-wrapper:focus {
+  opacity: 1;
+}
+
+.right-header-content {
+  text-align: right;
+  padding-right: 8px;
+}
+
+@media only screen and (max-width: 768px) {
+  .btn-search {
+    display: none;
+  }
+  .show-input-search-header-input {
+    background: #ffffff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 42px;
+  }
+  .show-input-search-header-content-background {
+    padding: 20px;
+    box-shadow: 0px 0px 30px -15px;
+  }
+
+  .topbar-btn-menu-detail {
+    display: none;
+  }
+
+  .left-header vnpt-logo {
+    margin-left: -2px;
+  }
+}
+
+.search-overlay-wrapper {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+@media only screen and (min-width: 769px) {
+  .show-input-search-header {
+    display: none;
+  }
+  .show-input-search-header-input {
+    display: none;
+  }
+  .topbar-btn-menu {
+    display: none;
+  }
+  .btninput-detail {
+    height: 25px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .vnpt-logo {
+    font-size: 23px;
+    line-height: 28px !important;
+  }
+
+  :host ::ng-deep .oneui-vnpt-logo-divider {
+    height: 14px;
+    top: 6px;
+  }
+
+  :host ::ng-deep .oneui-vnpt-logo-title {
+    font-size: 15px;
+    line-height: 25px;
+    margin-left: 1px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .vnpt-logo {
+    font-size: 20px;
+    line-height: 20px !important;
+  }
+
+  :host ::ng-deep .oneui-vnpt-logo-divider {
+    height: 14px;
+    top: 4px;
+  }
+
+  :host ::ng-deep .oneui-vnpt-logo-title {
+    font-size: 12px;
+    line-height: 22px;
+    margin-left: 1px;
+  }
+}
+
+:host ::ng-deep .oneui-drawer-body {
+  padding: 8px 16px;
+}
+
+.menu-user-info {
+  padding: 20px 20px;
+  border-bottom: solid 1px rgb(0 0 0 / 10%);
+}
+
+.menu-user-info h5 {
+  margin-bottom: 0;
+  margin-top: 5px;
+}
+
+.menu-user-info span {
+  font-size: 12px;
+}
+
+::ng-deep .menu-avatar .oneui-avatar-string {
+  left: 26%;
+}
+
+.menu-item i {
+  vertical-align: baseline;
+}
+
+.truncate {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.dot-badge {
+  vertical-align: bottom;
+  margin-left: -8px;
+}

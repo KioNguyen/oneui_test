@@ -1,0 +1,67 @@
+.quick-menu {
+  position: fixed;
+  width: 48px;
+  background-color: rgba(0, 0, 0, 0.1);
+  top: 42px;
+  left: 0;
+  bottom: 0;
+  padding-top: 15px;
+}
+
+.oneui-drawer-body .oneui-affix-item {
+  margin-left: -16px;
+  margin-right: -16px;
+  width: 100% !important;
+}
+
+.main-content {
+  padding-left: 48px;
+  padding-top: 42px;
+}
+
+.layout-wr {
+  padding: 7px 35px 0 35px;
+}
+
+.vertical-submenu {
+  height: calc(100vh - 85px);
+  overflow: hidden;
+}
+
+.vertical-submenu:hover {
+  overflow-y: auto;
+}
+
+.vertical-submenu::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
+}
+
+.vertical-submenu::-webkit-scrollbar {
+  width: 4px;
+  background-color: #f5f5f5;
+}
+
+.vertical-submenu::-webkit-scrollbar-thumb {
+  background-color: #00000020;
+  border: none;
+}
+@media only screen and (max-width: 575px) {
+  .quick-menu {
+    display: none;
+  }
+  .main-content {
+    padding-left: 0px;
+  }
+  .layout-wr {
+    padding: 0px 0px 0 0px;
+    margin-top: 15px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .layout-wr {
+    margin-top: 0px;
+    padding: 0px;
+  }
+}

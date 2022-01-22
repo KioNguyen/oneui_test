@@ -1,0 +1,31 @@
+<vnpt-page>
+  <vnpt-layout [vType]="'compact'">
+    <vnpt-main-content [title]="'Thông tin chi tiết'">
+      <vnpt-descriptions [vTitle]="title" vBordered>
+        <vnpt-descriptions-item vTitle="ID ứng dụng" [vSpan]="24">{{ data.id }}</vnpt-descriptions-item>
+        <vnpt-descriptions-item vTitle="Tên ứng dụng" [vSpan]="24">{{ data.name }}</vnpt-descriptions-item>
+        <vnpt-descriptions-item vTitle="Loại ứng dụng" [vSpan]="24">{{ data.type }}</vnpt-descriptions-item>
+        <vnpt-descriptions-item vTitle="Mô tả" [vSpan]="24">
+          {{ data.description }}
+        </vnpt-descriptions-item>
+        <vnpt-descriptions-item vTitle="Người đăng kí" [vSpan]="24">
+          {{ data.user_id }}
+        </vnpt-descriptions-item>
+        <vnpt-descriptions-item vTitle="Trạng thái" [vSpan]="24">
+          <vnpt-badge vStatus="processing" vText="Running"></vnpt-badge>
+        </vnpt-descriptions-item>
+        <vnpt-descriptions-item vTitle="Negotiated Amount" [vSpan]="24">$80.00</vnpt-descriptions-item>
+        <vnpt-descriptions-item vTitle="Discount" [vSpan]="24">$20.00</vnpt-descriptions-item>
+      </vnpt-descriptions>
+      <ng-template #title>
+        <h5 vnpt-typography class="sub-title"></h5>
+        <button vnpt-button vType="text" (click)="gotoEditPage()">
+          <i vnpt-icon vType="Edit" [vColor]="'primary'"></i>Cập nhật ứng dụng
+        </button>
+        <button vnpt-button vType="text" (click)="confirmDelete()">
+          <i vnpt-icon vType="Delete" [vColor]="'danger'"></i>Xóa ứng dụng
+        </button>
+      </ng-template>
+    </vnpt-main-content>
+  </vnpt-layout>
+</vnpt-page>

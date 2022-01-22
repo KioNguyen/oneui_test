@@ -1,0 +1,63 @@
+<div vnpt-row class="filter-wrapper" [vGutter]="20">
+  <div vnpt-col vXs="20" vSm="20" vMd="20" vLg="6" vXl="5" vXxl="5">
+    <div vnpt-row [vGutter]="10">
+      <div vnpt-col vXs="16" vSm="18" vMd="18" vLg="24" vXl="24" vXxl="24">
+        <vnpt-input-group [vPrefix]="prefixTemplateUser" [vSuffix]="inputClearTpl">
+          <input type="text" vnpt-input placeholder="Nhập từ khóa tìm kiếm" />
+        </vnpt-input-group>
+        <ng-template #prefixTemplateUser><i vnpt-icon vType="Search"></i></ng-template>
+        <ng-template #inputClearTpl><i vnpt-icon class="oneui-input-clear-icon" vType="StatusErrorFull"
+            *ngIf="inputValue" (click)="inputValue = null"></i></ng-template>
+      </div>
+      <div vnpt-col vXs="8" vSm="6" vMd="6" vLg="0" vXl="0" vXxl="0">
+        <button vnpt-button vType="primary">Tìm kiếm</button>
+      </div>
+    </div>
+  </div>
+  <div vnpt-col vXs="0" vSm="0" vMd="0" vLg="16" vXl="17" vXxl="17">
+    <div vnpt-row [vGutter]="20">
+      <div vnpt-col vSpan="5">
+        <i vnpt-icon [vSrc]="'icons/map.png' | assetUrl" [vSize]="'xs'"></i>
+        <vnpt-select vBorderless vAllowClear vPlaceHolder="Khu vực">
+          <vnpt-option vValue="jack" vLabel="Jack"></vnpt-option>
+          <vnpt-option vValue="lucy" vLabel="Lucy"></vnpt-option>
+          <vnpt-option vValue="disabled" vLabel="Disabled" vDisabled></vnpt-option>
+        </vnpt-select>
+      </div>
+      <div vnpt-col vSpan="5">
+        <i vnpt-icon [vSrc]="'icons/service.png' | assetUrl" [vSize]="'xs'"></i>
+        <vnpt-select vBorderless vAllowClear vPlaceHolder="Dịch vụ">
+          <vnpt-option vValue="jack" vLabel="Jack"></vnpt-option>
+          <vnpt-option vValue="lucy" vLabel="Lucy"></vnpt-option>
+          <vnpt-option vValue="disabled" vLabel="Disabled" vDisabled></vnpt-option>
+        </vnpt-select>
+      </div>
+      <div vnpt-col vSpan="5">
+        <i vnpt-icon [vSrc]="'icons/state.png' | assetUrl" [vSize]="'xs'"></i>
+        <vnpt-select vBorderless vAllowClear vPlaceHolder="Trạng thái">
+          <vnpt-option vValue="jack" vLabel="Jack"></vnpt-option>
+          <vnpt-option vValue="lucy" vLabel="Lucy"></vnpt-option>
+          <vnpt-option vValue="disabled" vLabel="Disabled" vDisabled></vnpt-option>
+        </vnpt-select>
+      </div>
+      <div vnpt-col vSpan="9">
+        <i vnpt-icon [vSrc]="'icons/calendar.png' | assetUrl" [vSize]="'xs'"></i>
+        <vnpt-range-picker vBorderless vFormat="dd-MM-YYYY"></vnpt-range-picker>
+      </div>
+    </div>
+  </div>
+  <div vnpt-col vXs="4" vSm="4" vMd="4" vLg="2" vXl="2" vXxl="2" class="advance-search-btn">
+    <button vnpt-button vType="text" vnpt-tooltip vTooltipTitle="Tìm kiếm nâng cao"
+      (click)="advanceSearch = !advanceSearch">
+      <i vnpt-icon [vSrc]="'icons/advanced-search.png' | assetUrl" [vSize]="'xs'"></i>
+    </button>
+  </div>
+</div>
+<div vnpt-row class="filter-wrapper mt-6" [vGutter]="20" *ngIf="advanceSearch">
+  <div vnpt-col vXs="0" vSm="0" vMd="0" vLg="1" vXl="2"></div>
+  <div vnpt-col vXs="24" vSm="12" vMd="8" vLg="4" vXl="4" vXxl="5" class="mb-4"></div>
+  <div vnpt-col vXs="24" vSm="12" vMd="8" vLg="4" vXl="4" vXxl="5" class="mb-4"></div>
+  <div vnpt-col vXs="24" vSm="12" vMd="8" vLg="5" vXl="4" vXxl="5" class="mb-4"></div>
+
+  <div vnpt-col vXs="24" vSm="24" vMd="14" vLg="9" vXl="7" vXxl="7" class="mb-4"></div>
+</div>

@@ -1,0 +1,17 @@
+.custom-dropdown-icon {
+  font-size: 16px !important;
+  vertical-align: -0.12em;
+}
+
+@media only screen and (max-width: 576px) {
+  .action-item-btn span {
+    display: none;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .action-item-dropdown :hover {
+    color: #092c4c;
+    background: rgba(0, 0, 0, 0.028);
+    border-color: transparent;
+  }
+}

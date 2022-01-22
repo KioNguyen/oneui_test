@@ -1,0 +1,33 @@
+<vnpt-layout>
+  <vnpt-layout>
+    <div  *ngIf="menuVisible; then hidden else visible">
+
+    </div>
+    <ng-template #hidden>
+    </ng-template>
+    <ng-template #visible>
+      <vnpt-sider vCollapsible  [vCollapsedWidth]="0" [vWidth]="300" class="vertical-submenu"  #menuContent >
+
+        <submenu-comp [menuConfig]="menuConfig" (itemClick)="itemClick()"></submenu-comp>
+    </vnpt-sider>
+    </ng-template>
+    <div  *ngIf="showMenuLeft; then hover else closehover">
+
+    </div>
+    <ng-template #hover>
+    </ng-template>
+    <ng-template #closehover>
+      <vnpt-sider (mouseleave)="closeMenu()" vCollapsible  [vCollapsedWidth]="0" [vWidth]="300" class="vertical-submenu1"  #menuContent  >
+
+        <submenu-comp [menuConfig]="menuConfig" (itemClick)="itemClick()"></submenu-comp>
+    </vnpt-sider>
+    </ng-template>
+    <vnpt-content class="right-content" >
+      <button vnpt-button vType="default" title="Đóng/Mở Menu" (click)="tonggleMenu()" class="menu-tonggle-btn" >
+        <i *ngIf="(menuVisible && showMenuLeft)"   vnpt-icon vType="NumberedListText" [vColor]="'primary'" (mouseenter)="hoverMenu()"></i>
+        <i *ngIf="!menuVisible || (!showMenuLeft && menuVisible)" vnpt-icon vType="IncreaseIndentMirrored" [vColor]="'primary'" ></i>
+      </button>
+      <router-outlet></router-outlet>
+    </vnpt-content>
+  </vnpt-layout>
+</vnpt-layout>

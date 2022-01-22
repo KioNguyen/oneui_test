@@ -1,0 +1,17 @@
+<div class="error-layout">
+  <vnpt-layout [vType]="'compactCenter'" class="error-content">
+    <vnpt-result vStatus="500" vTitle="500" vMainTitle="HỆ THỐNG MÁY CHỦ BỊ LỖI"
+      vSubTitle="Rất tiếc, chúng tôi đang gặp sự cố khi tải trang bạn đang tìm kiếm. Vui lòng quay lại sau.">
+      <div vnpt-result-extra>
+        Bạn có thể
+        <button class="btn-extra" vnpt-button vType="danger" (click)="goBack()">
+          Quay lại
+        </button>
+        hoặc trở về
+        <button class="btn-extra" vnpt-button vType="primary" (click)="goHome()">
+          Trang chủ
+        </button>
+      </div>
+    </vnpt-result>
+  </vnpt-layout>
+</div>

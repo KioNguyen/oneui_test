@@ -1,0 +1,36 @@
+<vnpt-page>
+  <vnpt-layout [vType]="'compact'">
+    <vnpt-main-content [title]="'Thêm mới ứng dụng'">
+      <div vnpt-row class="tablist-wrapper">
+        <div vnpt-col vSpan="24">
+          <vnpt-tabset [(vSelectedIndex)]="curentStep">
+            <vnpt-tab vTitle="Thông tin cơ bản">
+              <step1-register #step1></step1-register>
+            </vnpt-tab>
+            <vnpt-tab vTitle="Thông tin Mở rộng">
+              <step2-register #step2></step2-register>
+            </vnpt-tab>
+            <vnpt-tab vTitle="Xác nhận và khởi tạo">
+              <review-register [step1]="step1.form" [step2]="step2.form"></review-register>
+            </vnpt-tab>
+          </vnpt-tabset>
+        </div>
+      </div>
+    </vnpt-main-content>
+  </vnpt-layout>
+  <bottom-bar>
+    <button [disabled]="curentStep === 0" (click)="switchPreviousTab()" vnpt-button vType="primary" [vSize]="'small'"
+      class="mr-3 mr-md-4">
+      <i vnpt-icon vType="ChevronLeft" [vSize]="'xs'"></i>
+      Quay lại
+    </button>
+    <button [disabled]="curentStep === 2" (click)="switchNextTab()" vnpt-button vType="primary" [vSize]="'small'"
+      class="mr-3">
+      Tiếp theo <i vnpt-icon vType="ChevronRight" [vSize]="'xs'"></i>
+    </button>
+    <vnpt-divider vType="vertical" class="mr-4 d-none d-md-inline-block"></vnpt-divider>
+    <button [disabled]="curentStep < 2" vnpt-button vType="primary" [vSize]="'small'" (click)="createClick()">
+      Xác nhận và khởi tạo
+    </button>
+  </bottom-bar>
+</vnpt-page>

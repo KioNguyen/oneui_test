@@ -1,0 +1,221 @@
+<contexual-actionbar [left]="left" [right]="right"></contexual-actionbar>
+
+<ng-template #defaultLeft>
+  <button vnpt-dropdown [vDropdownMenu]="menu" vnpt-button vType="text" class="action-item-btn">
+    <i vnpt-icon [vType]="'Add'" [vColor]="'primary'" class="custom-dropdown-icon"></i><span>Thêm mới</span>
+    <i vnpt-icon vType="ChevronDown"></i>
+  </button>
+  <vnpt-dropdown-menu #menu="vDropdownMenu">
+    <ul vnpt-menu vSelectable>
+      <li vnpt-menu-item (click)="runCommand('create')">
+        <i vnpt-icon [vType]="'AppIconDefaultAdd'"></i>Thêm mới ứng dụng
+      </li>
+      <li vnpt-menu-item vDisabled>
+        <i vnpt-icon [vType]="'Contact'"></i>Thêm mới người dùng
+      </li>
+      <li vnpt-menu-item vDisabled>
+        <i vnpt-icon [vType]="'BulletedList2'"></i>Thêm mới trạng thái
+      </li>
+    </ul>
+  </vnpt-dropdown-menu>
+  <action-item [text]="'Làm mới'" [icon]="'Refresh'" (click)="runCommand('refresh')"
+    class="action-bar-item d-none d-xs-none d-xl-inline-block"></action-item>
+
+  <button vnpt-dropdown [vDropdownMenu]="actionbardefaultLeft" vnpt-button vType="text"
+    class="action-item-btn d-xl-none d-xxl-none">
+    <i vnpt-icon [vType]="'More'" [vColor]="'primary'" class="custom-dropdown-icon btn-more"></i>
+  </button>
+  <vnpt-dropdown-menu #actionbardefaultLeft="vDropdownMenu">
+    <ul vnpt-menu vSelectable>
+      <li vnpt-menu-item (click)="runCommand('refresh')" class="px-4 py-2 action-item-dropdown">
+        <i vnpt-icon [vType]="'Refresh'"></i>Làm mới
+      </li>
+    </ul>
+  </vnpt-dropdown-menu>
+</ng-template>
+
+<ng-template #defaultRight>
+  <button vnpt-dropdown [vDropdownMenu]="menu3" vnpt-button vType="text"
+    class="action-item-btn d-none d-xs-none d-sm-none d-md-inline-block" vnpt-tooltip [vTooltipTitle]="'Sắp xếp'">
+    <i vnpt-icon [vType]="'SortLines'" [vColor]="'primary'" class="custom-dropdown-icon"></i>
+    <span class="
+        d-none
+        d-xs-none
+        d-sm-none
+        d-md-none
+        d-lg-none
+        d-xl-none
+        d-xxl-inline-block
+      ">Sắp xếp</span>
+    <i vnpt-icon vType="ChevronDown"></i>
+  </button>
+  <vnpt-dropdown-menu #menu3="vDropdownMenu">
+    <ul vnpt-menu vSelectable>
+      <li vnpt-menu-item>1st menu item</li>
+      <li vnpt-menu-item>2nd menu item</li>
+      <li vnpt-menu-item>3rd menu item</li>
+      <li vnpt-menu-item vDanger>4th danger item</li>
+    </ul>
+  </vnpt-dropdown-menu>
+
+  <button vnpt-dropdown [vDropdownMenu]="menu2" vnpt-button vType="text"
+    class="action-item-btn d-none d-xs-none d-sm-none d-md-inline-block" vnpt-tooltip [vTooltipTitle]="'Hiển thị'">
+    <i vnpt-icon [vType]="'GridViewMedium'" [vColor]="'primary'" class="custom-dropdown-icon"></i><span class="
+        d-none
+        d-xs-none
+        d-sm-none
+        d-md-none
+        d-lg-none
+        d-xl-none
+        d-xxl-inline-block
+      ">Hiển thị</span>
+    <i vnpt-icon vType="ChevronDown"></i>
+  </button>
+  <vnpt-dropdown-menu #menu2="vDropdownMenu">
+    <ul vnpt-menu vSelectable>
+      <li vnpt-menu-item>1st menu item</li>
+      <li vnpt-menu-item>2nd menu item</li>
+      <li vnpt-menu-item>3rd menu item</li>
+      <li vnpt-menu-item vDanger>4th danger item</li>
+    </ul>
+  </vnpt-dropdown-menu>
+
+  <action-item [icon]="'Print'" [title]="'In'" class="d-none d-xs-none d-sm-none d-md-inline-block"></action-item>
+  <action-item [icon]="'Info'" [title]="'Hướng dẫn'" class="d-none d-xs-none d-sm-none d-md-inline-block"></action-item>
+
+  <button vnpt-dropdown [vDropdownMenu]="listrightdefault" vnpt-button vType="text"
+    class="d-md-none d-lg-none d-xl-none d-xxl-none">
+    <i vnpt-icon [vType]="'MoreVertical'" [vColor]="'primary'" class="custom-dropdown-icon btn-more"></i>
+  </button>
+  <vnpt-dropdown-menu #listrightdefault="vDropdownMenu">
+    <ul vnpt-menu>
+
+      <li vnpt-submenu vTitle="Sắp xếp" [vIcon]="'SortLines'" >
+        <ul>
+          <li vnpt-menu-item>1st menu item</li>
+          <li vnpt-menu-item>2nd menu item</li>
+          <li vnpt-menu-item>3rd menu item</li>
+        </ul>
+      </li>
+      <li vnpt-submenu vTitle="Hiển thị" [vIcon]="'GridViewMedium'"  >
+        <ul>
+          <li vnpt-menu-item>1st menu item</li>
+            <li vnpt-menu-item>2nd menu item</li>
+            <li vnpt-menu-item>3rd menu item</li>
+            <li vnpt-menu-item vDanger>4th danger item</li>
+        </ul>
+      </li>
+      <li vnpt-menu-item><i vnpt-icon [vType]="'Print'" ></i><span>In</span></li>
+      <li vnpt-menu-item><i vnpt-icon [vType]="'Info'" ></i><span>Hướng dẫn</span></li>
+    </ul>
+  </vnpt-dropdown-menu>
+</ng-template>
+
+<ng-template #singleLeft>
+  <button vnpt-dropdown [vDropdownMenu]="menu" vnpt-button vType="text" class="action-item-btn">
+    <i vnpt-icon [vType]="'Add'" [vColor]="'primary'" class="custom-dropdown-icon"></i><span>Thêm mới</span>
+    <i vnpt-icon vType="ChevronDown"></i>
+  </button>
+  <vnpt-dropdown-menu #menu="vDropdownMenu">
+    <ul vnpt-menu vSelectable>
+      <li vnpt-menu-item (click)="runCommand('create')">
+        <i vnpt-icon [vType]="'AppIconDefaultAdd'"></i>Thêm mới ứng dụng
+      </li>
+      <li vnpt-menu-item vDisabled>
+        <i vnpt-icon [vType]="'Contact'"></i>Thêm mới người dùng
+      </li>
+      <li vnpt-menu-item vDisabled>
+        <i vnpt-icon [vType]="'BulletedList2'"></i>Thêm mới trạng thái
+      </li>
+    </ul>
+  </vnpt-dropdown-menu>
+  <action-item [text]="'Làm mới'" [icon]="'Refresh'" (click)="runCommand('refresh')"
+    class="action-bar-item d-none d-xs-none d-xl-inline-block"></action-item>
+  <action-item [text]="'Chi tiết'" [icon]="'EntryView'" (click)="runCommand('view')"
+    class="action-bar-item d-none d-xs-none d-xl-inline-block"></action-item>
+  <action-item [text]="'Sửa'" [icon]="'Edit'" (click)="runCommand('edit')"
+    class="action-bar-item d-none d-xs-none d-xl-inline-block"></action-item>
+  <action-item [text]="'Xóa'" [icon]="'Delete'" [color]="'danger'" (click)="runCommand('delete')"
+    class="action-bar-item d-none d-xs-none d-xl-inline-block"></action-item>
+  <action-item [text]="'Nhân bản'" [icon]="'Copy'" (click)="runCommand('copy')"
+    class="action-bar-item d-none d-xs-none d-xl-inline-block"></action-item>
+  <action-item [text]="'Chia sẻ'" [icon]="'Share'" class="action-bar-item d-none d-xs-none d-xl-inline-block">
+  </action-item>
+  <button vnpt-dropdown [vDropdownMenu]="listactionbar" vnpt-button vType="text" class="action-item-btn">
+    <i vnpt-icon [vType]="'More'" [vColor]="'primary'" class="custom-dropdown-icon btn-more d-xxl-none d-xl-none"></i>
+  </button>
+  <vnpt-dropdown-menu #listactionbar="vDropdownMenu">
+    <ul vnpt-menu vSelectable>
+      <li vnpt-menu-item (click)="runCommand('refresh')" class="px-4 py-2 action-item-dropdown">
+        <i vnpt-icon [vType]="'Refresh'"></i>Làm mới
+      </li>
+      <li vnpt-menu-item (click)="runCommand('view')" class="px-4 py-2 action-item-dropdown">
+        <i vnpt-icon [vType]="'EntryView'"></i>Chi tiết
+      </li>
+      <li vnpt-menu-item (click)="runCommand('edit')" class="action-item-dropdown px-4 py-2">
+        <i vnpt-icon [vType]="'Edit'"></i>Sửa
+      </li>
+      <li vnpt-menu-item (click)="runCommand('delete')" class="action-item-dropdown px-4 py-2">
+        <i vnpt-icon [vType]="'Delete'" [vColor]="'red'"></i>Xóa
+      </li>
+      <li vnpt-menu-item (click)="runCommand('copy')" class="action-item-dropdown px-4 py-2">
+        <i vnpt-icon [vType]="'Copy'"></i>Nhân bản
+      </li>
+      <li vnpt-menu-item class="action-item-dropdown px-4 py-2">
+        <i vnpt-icon [vType]="'Share'"></i>Chia sẻ
+      </li>
+    </ul>
+  </vnpt-dropdown-menu>
+</ng-template>
+
+<ng-template #singleRight>
+  <action-item [icon]="'Cancel'" [text]="'đã chọn ' + selected" (click)="runCommand('clearSelect')"></action-item>
+  <action-item [icon]="'Info'" [title]="'Hướng dẫn'"></action-item>
+</ng-template>
+
+<ng-template #mutiLeft>
+  <button vnpt-dropdown [vDropdownMenu]="menu" vnpt-button vType="text" class="action-item-btn">
+    <i vnpt-icon [vType]="'Add'" [vColor]="'primary'" class="custom-dropdown-icon"></i><span>Thêm mới</span>
+    <i vnpt-icon vType="ChevronDown"></i>
+  </button>
+  <vnpt-dropdown-menu #menu="vDropdownMenu">
+    <ul vnpt-menu vSelectable>
+      <li vnpt-menu-item (click)="runCommand('create')">
+        <i vnpt-icon [vType]="'AppIconDefaultAdd'"></i>Thêm mới ứng dụng
+      </li>
+      <li vnpt-menu-item vDisabled>
+        <i vnpt-icon [vType]="'Contact'"></i>Thêm mới người dùng
+      </li>
+      <li vnpt-menu-item vDisabled>
+        <i vnpt-icon [vType]="'BulletedList2'"></i>Thêm mới trạng thái
+      </li>
+    </ul>
+  </vnpt-dropdown-menu>
+  <action-item [text]="'Làm mới'" [icon]="'Refresh'" (click)="runCommand('refresh')"
+    class="action-bar-item d-none d-xs-none d-xl-inline-block"></action-item>
+  <action-item [text]="'Nhân bản'" [icon]="'Copy'" (click)="runCommand('copy')"
+    class="action-bar-item d-none d-xs-none d-xl-inline-block"></action-item>
+  <action-item [text]="'Xóa'" [icon]="'Delete'" [color]="'danger'" (click)="runCommand('delete')"
+    class="action-bar-item d-none d-xs-none d-xl-inline-block"></action-item>
+  <button vnpt-dropdown [vDropdownMenu]="listactionbarmutiLeft" vnpt-button vType="text"
+    class="action-item-btn d-xl-none d-xxl-none">
+    <i vnpt-icon [vType]="'More'" [vColor]="'primary'" class="custom-dropdown-icon btn-more"></i>
+  </button>
+  <vnpt-dropdown-menu #listactionbarmutiLeft="vDropdownMenu">
+    <ul vnpt-menu vSelectable>
+      <li vnpt-menu-item (click)="runCommand('refresh')" class="action-item-dropdown px-4 py-2">
+        <i vnpt-icon [vType]="'Refresh'"></i>Làm mới
+      </li>
+      <li vnpt-menu-item (click)="runCommand('copy')" class="action-item-dropdown px-4 py-2">
+        <i vnpt-icon [vType]="'Copy'"></i>Nhân bản
+      </li>
+      <li vnpt-menu-item (click)="runCommand('delete')" class="action-item-dropdown px-4 py-2">
+        <i vnpt-icon [vType]="'Delete'" [vColor]="'red'"></i>Xóa
+      </li>
+    </ul>
+  </vnpt-dropdown-menu>
+</ng-template>
+
+<ng-template #mutiRight>
+  <action-item [icon]="'Cancel'" [text]="'đã chọn ' + selected" (click)="runCommand('clearSelect')"></action-item>
+</ng-template>

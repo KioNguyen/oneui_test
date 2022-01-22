@@ -1,0 +1,10 @@
+<vnpt-page>
+  <vnpt-layout [vType]="'compact'">
+    <vnpt-main-content [title]="'Kiểm tra điều hướng Router giữa các MicroApp'">
+      <a vnpt-button routerLink="/listing1" vType="primary" >Link nội bộ MicroApp (no reload)</a> <br><br>
+      <a vnpt-button vRouterLink="/home/listing2" vType="primary" >Link sang MicroApp khác (no reload)</a> <br><br>
+      <a vnpt-button vRouterLink="/home/listing2/create" vType="primary" >Link sang router con của MicroApp khác (no reload)</a> <br><br>
+      <a vnpt-button href="/home/listing2/create" vType="primary" >Link sử dụng href thông thường (page reload)</a> <br><br>
+    </vnpt-main-content>
+  </vnpt-layout>
+</vnpt-page>

@@ -1,0 +1,228 @@
+<vnpt-page>
+  <vnpt-layout [vType]="'compact'">
+    <vnpt-main-content [title]="'Cập nhật ứng dụng'">
+      <div vnpt-row class="tablist-wrapper">
+        <div vnpt-col vSpan="24">
+          <vnpt-tabset [(vSelectedIndex)]="tabIndex">
+            <vnpt-tab vTitle="Thông tin ứng dụng">
+              <vnpt-badge vColor="red" vText="Trường bắt buộc phải nhập"></vnpt-badge>
+              <form vnpt-form style="margin-top: 30px; width: 800px" [formGroup]="validateForm" [vLayout]="'vertical'"
+                (ngSubmit)="submitForm()">
+                <vnpt-form-item>
+                  <vnpt-form-label vFor="nickname" vRequired vTooltipTitle="">
+                    <span>ID ứng dụng</span>
+                  </vnpt-form-label>
+                  <vnpt-form-control vErrorTip="Nhập ID ứng dụng!">
+                    <input vnpt-input id="id" formControlName="id" />
+                  </vnpt-form-control>
+                </vnpt-form-item>
+                <vnpt-form-item>
+                  <vnpt-form-label vFor="name" vRequired vTooltipTitle="">
+                    <span>Tên ứng dụng</span>
+                  </vnpt-form-label>
+                  <vnpt-form-control vErrorTip="Nhập tên ứng dụng!">
+                    <input vnpt-input id="name" formControlName="name" />
+                  </vnpt-form-control>
+                </vnpt-form-item>
+                <vnpt-form-item>
+                  <vnpt-form-label vFor="type" vRequired vTooltipTitle="">
+                    <span>Loại ứng dụng</span>
+                  </vnpt-form-label>
+                  <vnpt-form-control vErrorTip="Nhập loại ứng dụng!">
+                    <input vnpt-input id="type" formControlName="type" />
+                  </vnpt-form-control>
+                </vnpt-form-item>
+                <vnpt-form-item>
+                  <vnpt-form-label vFor="des" vRequired vTooltipTitle="">
+                    <span>Mô tả ứng dụng</span>
+                  </vnpt-form-label>
+                  <vnpt-form-control vErrorTip="Nhập mô tả!">
+                    <input vnpt-input id="des" formControlName="des" />
+                  </vnpt-form-control>
+                </vnpt-form-item>
+              </form>
+            </vnpt-tab>
+            <!-- <vnpt-tab vTitle="Thông tin liên hệ">
+              <vnpt-badge vColor="red" vText="Trường bắt buộc phải nhập"></vnpt-badge>
+              <form vnpt-form style="margin-top: 30px; width: 800px;"
+                  [formGroup]="validateForm"
+                  [vLayout]="'vertical'"
+                  (ngSubmit)="submitForm()">
+                  <vnpt-form-item>
+                    <vnpt-form-label
+                      vFor="nickname"
+                      vRequired
+                      vTooltipTitle=""
+                    >
+                      <span>ID ứng dụng</span>
+                    </vnpt-form-label>
+                      <vnpt-form-control vErrorTip="Nhập ID ứng dụng!">
+                        <input vnpt-input id="id" formControlName="id" />
+                      </vnpt-form-control>
+                  </vnpt-form-item>
+                  <vnpt-form-item>
+                    <vnpt-form-label
+                      vFor="name"
+                      vRequired
+                      vTooltipTitle=""
+                    >
+                      <span>Tên ứng dụng</span>
+                    </vnpt-form-label>
+                    <vnpt-form-control vErrorTip="Nhập tên ứng dụng!">
+                      <input vnpt-input id="name" formControlName="name" />
+                    </vnpt-form-control>
+                </vnpt-form-item>
+                <vnpt-form-item>
+                  <vnpt-form-label
+                    vFor="type"
+                    vRequired
+                    vTooltipTitle=""
+                  >
+                    <span>Loại ứng dụng</span>
+                  </vnpt-form-label>
+                  <vnpt-form-control vErrorTip="Nhập loại ứng dụng!">
+                    <input vnpt-input id="type" formControlName="type" />
+                  </vnpt-form-control>
+              </vnpt-form-item>
+              <vnpt-form-item>
+                <vnpt-form-label
+                  vFor="des"
+                  vRequired
+                  vTooltipTitle=""
+                >
+                  <span>Mô tả ứng dụng</span>
+                </vnpt-form-label>
+                <vnpt-form-control vErrorTip="Nhập mô tả!">
+                  <input vnpt-input id="des" formControlName="des" />
+                </vnpt-form-control>
+            </vnpt-form-item>
+
+
+              </form>
+            </vnpt-tab>
+            <vnpt-tab vTitle="Thiết lập ứng dụng">
+              <vnpt-badge vColor="red" vText="Trường bắt buộc phải nhập"></vnpt-badge>
+              <form vnpt-form style="margin-top: 30px; width: 800px;"
+              [formGroup]="validateForm"
+              [vLayout]="'vertical'"
+              (ngSubmit)="submitForm()">
+              <vnpt-form-item>
+                <vnpt-form-label
+                  vFor="nickname"
+                  vRequired
+                  vTooltipTitle=""
+                >
+                  <span>ID ứng dụng</span>
+                </vnpt-form-label>
+                  <vnpt-form-control vErrorTip="Nhập ID ứng dụng!">
+                    <input vnpt-input id="id" formControlName="id" />
+                  </vnpt-form-control>
+              </vnpt-form-item>
+              <vnpt-form-item>
+                <vnpt-form-label
+                  vFor="name"
+                  vRequired
+                  vTooltipTitle=""
+                >
+                  <span>Tên ứng dụng</span>
+                </vnpt-form-label>
+                <vnpt-form-control vErrorTip="Nhập tên ứng dụng!">
+                  <input vnpt-input id="name" formControlName="name" />
+                </vnpt-form-control>
+            </vnpt-form-item>
+            <vnpt-form-item>
+              <vnpt-form-label
+                vFor="type"
+                vRequired
+                vTooltipTitle=""
+              >
+                <span>Loại ứng dụng</span>
+              </vnpt-form-label>
+              <vnpt-form-control vErrorTip="Nhập loại ứng dụng!">
+                <input vnpt-input id="type" formControlName="type" />
+              </vnpt-form-control>
+          </vnpt-form-item>
+          <vnpt-form-item>
+            <vnpt-form-label
+              vFor="des"
+              vRequired
+              vTooltipTitle=""
+            >
+              <span>Mô tả ứng dụng</span>
+            </vnpt-form-label>
+            <vnpt-form-control vErrorTip="Nhập mô tả!">
+              <input vnpt-input id="des" formControlName="des" />
+            </vnpt-form-control>
+        </vnpt-form-item>
+
+
+              </form>
+            </vnpt-tab> -->
+            <vnpt-tab vTitle="Xác nhận thông tin">
+              <vnpt-badge vColor="red" vText="Trường bắt buộc phải nhập"></vnpt-badge>
+              <form vnpt-form style="margin-top: 30px; width: 800px" [formGroup]="validateForm" [vLayout]="'vertical'"
+                (ngSubmit)="submitForm()">
+                <vnpt-form-item>
+                  <vnpt-form-label vFor="nickname" vRequired vTooltipTitle="">
+                    <span>ID ứng dụng</span>
+                  </vnpt-form-label>
+                  <vnpt-form-control vErrorTip="Nhập ID ứng dụng!">
+                    <input vnpt-input id="id" formControlName="id" />
+                  </vnpt-form-control>
+                </vnpt-form-item>
+                <vnpt-form-item>
+                  <vnpt-form-label vFor="name" vRequired vTooltipTitle="">
+                    <span>Tên ứng dụng</span>
+                  </vnpt-form-label>
+                  <vnpt-form-control vErrorTip="Nhập tên ứng dụng!">
+                    <input vnpt-input id="name" formControlName="name" />
+                  </vnpt-form-control>
+                </vnpt-form-item>
+                <vnpt-form-item>
+                  <vnpt-form-label vFor="type" vRequired vTooltipTitle="">
+                    <span>Loại ứng dụng</span>
+                  </vnpt-form-label>
+                  <vnpt-form-control vErrorTip="Nhập loại ứng dụng!">
+                    <input vnpt-input id="type" formControlName="type" />
+                  </vnpt-form-control>
+                </vnpt-form-item>
+                <vnpt-form-item>
+                  <vnpt-form-label vFor="des" vRequired vTooltipTitle="">
+                    <span>Mô tả ứng dụng</span>
+                  </vnpt-form-label>
+                  <vnpt-form-control vErrorTip="Nhập mô tả!">
+                    <input vnpt-input id="des" formControlName="des" />
+                  </vnpt-form-control>
+                </vnpt-form-item>
+              </form>
+            </vnpt-tab>
+          </vnpt-tabset>
+        </div>
+      </div>
+    </vnpt-main-content>
+    <vnpt-footer>
+      <div vnpt-row>
+        <div vnpt-col vSpan="12" vOffset="4">
+          <vnpt-button-group class="fixedButton">
+            <button vSize="small" vnpt-button vType="primary" style="margin-right: 15px">
+              Xem và tạo ứng dụng
+            </button>
+            <button vSize="small" [disabled]="tabIndex === 0" (click)="switchPreviousTab()" vnpt-button vType="primary"
+              style="margin-right: 15px">
+              <i vnpt-icon vType="ChevronLeftEnd6"></i>
+              Trở về
+            </button>
+            <button vSize="small" [disabled]="tabIndex === 3" (click)="switchNextTab()" vnpt-button vType="primary"
+              style="margin-right: 15px">
+              <i vnpt-icon vType="ChevronRightEnd6"></i>
+              Tiếp theo
+            </button>
+            <button vSize="small" vType="primary" vDanger vnpt-button>
+              <i vnpt-icon vType="Delete"></i>Hủy bỏ
+            </button>
+          </vnpt-button-group>
+        </div>
+      </div>
+    </vnpt-footer>
+  </vnpt-layout>
+</vnpt-page>

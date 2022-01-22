@@ -1,0 +1,13 @@
+.label-pos {
+  text-align: left;
+}
+.fixedButton {
+  position: fixed;
+  bottom: 10px;
+}
+
+:host ::ng-deep .tab-content {
+  max-width: 800px;
+  min-height: 600px;
+  padding: 15px;
+}

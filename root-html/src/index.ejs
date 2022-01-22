@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VNPT ONEUI CODE BASE</title>
+    <link rel="stylesheet" href="https://storage-stagging.vnpt.vn/oneui/1.1/oneui-ui.min.css">
+    <link rel="stylesheet" href="https://storage-stagging.vnpt.vn/oneui/1.1/fabric-icons.min.css">
+    <link rel="stylesheet" href="https://storage-stagging.vnpt.vn/oneui/opensans/opensans.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self' https: localhost:*  10.159.19.77:*; script-src 'unsafe-inline' 'unsafe-eval' https: localhost:* 10.159.19.77:*; connect-src https: localhost:* ws://localhost:*; style-src 'unsafe-inline' https: localhost:* 10.159.19.77:*; object-src 'none';img-src 'self' data: *;">
+    <meta name="importmap-type" content="systemjs-importmap"/>
+
+    <link rel="preload" href="https://storage-stagging.vnpt.vn/oneui/libs/single-spa.min.js" as="script">
+    <script id="one-ui-import-map"></script>
+
+    <script src="https://storage-stagging.vnpt.vn/oneui/libs/import-map-overrides.js"></script>
+    <script src="https://storage-stagging.vnpt.vn/oneui/libs/zone.js"></script>
+
+    <% if (isLocal) { %>
+        <script src="https://storage-stagging.vnpt.vn/oneui/libs/system.js"></script>
+        <script src="https://storage-stagging.vnpt.vn/oneui/libs/amd.js"></script>
+    <% } else { %>
+        <script src="https://storage-stagging.vnpt.vn/oneui/libs/system.min.js"></script>
+        <script src="https://storage-stagging.vnpt.vn/oneui/libs/amd.min.js"></script>
+    <% } %>
+</head>
+<body>
+
+<oneui-layout>
+    <oneui-content></oneui-content>
+</oneui-layout>
+
+<script src="https://storage-stagging.vnpt.vn/oneui/1.1/oneui-main.js"></script>
+
+<% if (isLocal) { %>
+  <script>
+    var appConfigs = {
+      header: "http://localhost:4201/main.js",
+      login: "http://localhost:4202/main.js",
+      breadcrumb: "http://localhost:4203/main.js",
+      emptypage: "http://localhost:4204/main.js",
+      errorpage: "http://localhost:4205/main.js",
+      home: "http://localhost:4206/main.js",
+      quickmenu: "http://localhost:4213/main.js",
+      listing1: "http://localhost:4207/main.js",
+      listing2: "http://localhost:4208/main.js",
+      nopermission: "http://localhost:4209/main.js",
+      notfound: "http://localhost:4210/main.js",
+      submenu1: "http://localhost:4211/main.js",
+      submenu2: "http://localhost:4212/main.js",
+      settings: "http://localhost:4214/main.js",
+      "@vnpt/root-config": "//localhost:9000/vnpt-root-config.js",
+    };
+  </script>
+<% } else { %>
+  <script>
+    var appConfigs = {
+      header: "http://10.159.19.77:8864/demo1/apps/header/main.js",
+      login: "http://10.159.19.77:8864/demo1/apps/login/main.js",
+      breadcrumb: "http://10.159.19.77:8864/demo1/apps/breadcrumb/main.js",
+      emptypage: "http://10.159.19.77:8864/demo1/apps/emptypage/main.js",
+      errorpage: "http://10.159.19.77:8864/demo1/apps/errorpage/main.js",
+      home: "http://10.159.19.77:8864/demo1/apps/home/main.js",
+      quickmenu: "http://10.159.19.77:8864/demo1/apps/quickmenu/main.js",
+      listing1: "http://10.159.19.77:8864/demo1/apps/listing1/main.js",
+      listing2: "http://10.159.19.77:8864/demo1/apps/listing2/main.js",
+      nopermission: "http://10.159.19.77:8864/demo1/apps/nopermission/main.js",
+      notfound: "http://10.159.19.77:8864/demo1/apps/notfound/main.js",
+      submenu1: "http://10.159.19.77:8864/demo1/apps/submenu1/main.js",
+      submenu2: "http://10.159.19.77:8864/demo1/apps/submenu2/main.js",
+      settings: "http://10.159.19.77:8864/demo1/apps/settings/main.js",
+      "@vnpt/root-config": "//10.159.19.77:8864/demo1/vnpt-root-config.js",
+      };
+  </script>
+<% } %>
+<script>
+    var layout = `<redirect from="/" to="/home"></redirect>
+                  <route path="login"><application name="login"></application></route>
+                  <route path="nopermission"><application name="nopermission"></application></route>
+                  <route path="errorpage"><application name="errorpage"></application></route>
+                  <route path="home">
+                    <application name="header"></application>
+                      <div class="main">
+                        <div class="quick-menu">
+                          <application name="quickmenu"></application>
+                        </div>
+                        <div class="main-content">
+                          <application name="breadcrumb"></application>
+                          <div class="main-router">
+                            <route path="listing1"><application name="listing1"></application></route>
+                            <route path="listing2"><application name="listing2"></application></route>
+                            <route path="submenu1"><application name="submenu1"></application></route>
+                            <route path="submenu2"><application name="submenu2"></application></route>
+                            <route path="settings"><application name="settings"></application></route>
+                            <route path="emptypage"><application name="emptypage"></application></route>
+                            <route default><application name="home"></application></route>
+                          </div>
+                        </div>
+                      </div>
+                  </route>
+                  <route default><application name="notfound"></application></route>`;
+
+    var oneUI = new OneUI(appConfigs,layout);
+
+    System.import("@vnpt/root-config");
+
+</script>
+</body>
+</html>

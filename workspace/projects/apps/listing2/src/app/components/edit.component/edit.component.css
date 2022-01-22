@@ -1,0 +1,7 @@
+.label-pos {
+  text-align: left;
+}
+.fixedButton {
+  position: fixed;
+  bottom: 10px;
+}

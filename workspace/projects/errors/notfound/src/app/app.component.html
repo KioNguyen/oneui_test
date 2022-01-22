@@ -1,0 +1,17 @@
+<div class="error-layout">
+  <vnpt-layout [vType]="'compactCenter'" class="error-content">
+    <vnpt-result vStatus="404" vTitle="404" vMainTitle="KHÔNG TÌM THẤY TRANG YÊU CẦU"
+      vSubTitle="Đường dẫn URL có thể không đúng hoặc trang bạn đang tìm kiếm không còn nữa. Vui lòng kiểm tra lại.">
+      <div vnpt-result-extra>
+        Bạn có thể
+        <button class="btn-extra" vnpt-button vType="danger" (click)="goBack()">
+          Quay lại
+        </button>
+        hoặc trở về
+        <button class="btn-extra" vnpt-button vType="primary" (click)="goHome()">
+          Trang chủ
+        </button>
+      </div>
+    </vnpt-result>
+  </vnpt-layout>
+</div>
